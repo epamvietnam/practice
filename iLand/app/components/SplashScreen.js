@@ -4,21 +4,35 @@ import AnimatedLinearGradient, {
   presetColors,
 } from 'react-native-animated-linear-gradient';
 
+const text = 'iLand';
+
 class SplashScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      displayText: '',
+    };
+  }
+
   performTimeConsumingTask = async () => {
-    return new Promise(resolve =>
-      setTimeout(() => {
-        resolve('result');
-      }, 5000),
+    return new Promise(
+      resolve =>
+        (this.timerInterval = setInterval(() => {
+          if (this.state.displayText === text) {
+            clearInterval(this.timerInterval);
+            resolve('result');
+            this.props.navigation.navigate('App');
+          } else {
+            let newString = text[count];
+            this.setState({displayText: this.state.displayText + newString});
+            count++;
+          }
+        }, 1000)),
     );
   };
 
   async componentDidMount() {
-    const data = await this.performTimeConsumingTask();
-
-    if (data !== null) {
-      this.props.navigation.navigate('App');
-    }
+    await this.performTimeConsumingTask();
   }
 
   render() {
@@ -28,7 +42,7 @@ class SplashScreen extends React.Component {
           customColors={presetColors.sunrise}
           speed={1000}
         />
-        <Text style={styles.textStyles}>iLand</Text>
+        <Text style={styles.textStyles}>{this.state.displayText}</Text>
       </View>
     );
   }
