@@ -15,6 +15,7 @@ class SplashScreen extends React.Component {
   }
 
   performTimeConsumingTask = async () => {
+    let count = 0;
     return new Promise(
       resolve =>
         (this.timerInterval = setInterval(() => {
