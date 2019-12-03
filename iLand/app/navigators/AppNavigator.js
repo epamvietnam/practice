@@ -1,6 +1,7 @@
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeScreen from '../components/HomeScreen';
 import SettingsScreen from '../components/SettingsScreen';
+import {Colors} from '../styles/DefaultStyles';
 
 export default createBottomTabNavigator(
   {
@@ -14,8 +15,8 @@ export default createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: 'orange',
-      inactiveTintColor: 'gray',
+      activeTintColor: Colors.primary,
+      inactiveTintColor: Colors.disable,
     },
   },
 );

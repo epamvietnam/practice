@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import AnimatedLinearGradient, {
+  presetColors,
+} from 'react-native-animated-linear-gradient';
 
 class SplashScreen extends React.Component {
   performTimeConsumingTask = async () => {
@@ -11,8 +14,6 @@ class SplashScreen extends React.Component {
   };
 
   async componentDidMount() {
-    // Preload data from an external API
-    // Preload data using AsyncStorage
     const data = await this.performTimeConsumingTask();
 
     if (data !== null) {
@@ -23,6 +24,10 @@ class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.viewStyles}>
+        <AnimatedLinearGradient
+          customColors={presetColors.sunrise}
+          speed={1000}
+        />
         <Text style={styles.textStyles}>iLand</Text>
       </View>
     );
@@ -34,7 +39,6 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'orange',
   },
   textStyles: {
     color: 'white',
