@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import AnimatedLinearGradient, {
   presetColors,
 } from 'react-native-animated-linear-gradient';
@@ -12,6 +12,11 @@ class SplashScreen extends React.Component {
     this.state = {
       displayText: '',
     };
+    StatusBar.setHidden(true);
+  }
+
+  componentWillUnmount() {
+    StatusBar.setHidden(false);
   }
 
   performTimeConsumingTask = async () => {
