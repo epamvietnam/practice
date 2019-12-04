@@ -3,11 +3,12 @@ import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {Colors} from '../styles/DefaultStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import CheckInIcon from '../images/Check_In_Pin_Icon.svg';
+import {Icon} from 'react-native-elements';
 
 export class HouseDetailScreen extends Component {
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: '#f2f2f2'}}>
         <View style={{flex: 4}}>
           <Image
             source={require('../images/house.png')}
@@ -18,7 +19,7 @@ export class HouseDetailScreen extends Component {
             }}
           />
           <LinearGradient
-            colors={['transparent', '#FFF']}
+            colors={['transparent', 'rgba(0, 0, 0, 1)']}
             style={{
               position: 'absolute',
               top: 0,
@@ -28,10 +29,23 @@ export class HouseDetailScreen extends Component {
             }}
           />
         </View>
-        <View style={{flex: 5, marginTop: -50, paddingHorizontal: 15}}>
+        <View
+          style={{
+            flex: 5,
+            marginTop: -85,
+            alignSelf: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 18,
+              color: '#FFFF',
+              alignSelf: 'center',
+            }}>
+            ¥1120000
+          </Text>
           <View
             style={{
-              alignSelf: 'flex-end',
+              alignSelf: 'center',
               flexDirection: 'row',
             }}>
             <Text
@@ -49,7 +63,7 @@ export class HouseDetailScreen extends Component {
           </View>
           <View
             style={{
-              alignSelf: 'flex-end',
+              alignSelf: 'center',
               flexDirection: 'row',
               marginTop: 10,
             }}>
@@ -63,18 +77,32 @@ export class HouseDetailScreen extends Component {
                 borderWidth: 0,
                 paddingVertical: 5,
                 marginRight: 10,
-                backgroundColor: '#ff0000B3',
+                backgroundColor: '#F29335',
               }}>
-              <Text
+              <View
                 style={{
-                  color: '#FFFFFF',
-                  fontSize: 14,
-                  letterSpacing: 0.44,
-                  textTransform: 'uppercase',
-                  fontWeight: 'bold',
+                  alignSelf: 'center',
+                  flexDirection: 'row',
+                  paddingHorizontal: 10,
                 }}>
-                Buy
-              </Text>
+                <Icon
+                  name="shopping-cart"
+                  type="font-awesome"
+                  size={20}
+                  color="#FFFFFF"
+                />
+                <Text
+                  style={{
+                    color: '#FFFFFF',
+                    fontSize: 14,
+                    letterSpacing: 0.44,
+                    textTransform: 'uppercase',
+                    fontWeight: 'bold',
+                    marginHorizontal: 10,
+                  }}>
+                  Buy
+                </Text>
+              </View>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
@@ -85,19 +113,78 @@ export class HouseDetailScreen extends Component {
                 width: 120,
                 borderWidth: 0,
                 paddingVertical: 5,
-                backgroundColor: '#106cc8B3',
+                backgroundColor: '#106cc8',
               }}>
-              <Text
+              <View
                 style={{
-                  color: '#FFFFFF',
-                  fontSize: 14,
-                  letterSpacing: 0.44,
-                  textTransform: 'uppercase',
-                  fontWeight: 'bold',
+                  alignSelf: 'center',
+                  flexDirection: 'row',
+                  paddingHorizontal: 10,
                 }}>
-                History
-              </Text>
+                <Icon
+                  name="history"
+                  type="font-awesome"
+                  size={20}
+                  color="#FFFFFF"
+                />
+                <Text
+                  style={{
+                    color: '#FFFFFF',
+                    fontSize: 14,
+                    letterSpacing: 0.44,
+                    textTransform: 'uppercase',
+                    fontWeight: 'bold',
+                    marginHorizontal: 10,
+                  }}>
+                  History
+                </Text>
+              </View>
             </TouchableOpacity>
+          </View>
+
+          {/* List View */}
+          
+          <View
+            style={{
+              flexDirection: 'row',
+              marginVertical: 20,
+              marginHorizontal: 15,
+              width: '90%',
+            }}>
+            <Image
+              source={require('../assets/home.jpg')}
+              style={{
+                borderRadius: 5,
+                flex: 1,
+                height: 100,
+              }}
+            />
+            <View
+              style={{
+                width: 10,
+              }}
+            />
+            <Image
+              source={require('../assets/home.jpg')}
+              style={{
+                borderRadius: 5,
+                flex: 1,
+                height: 100,
+              }}
+            />
+            <View
+              style={{
+                width: 10,
+              }}
+            />
+            <Image
+              source={require('../assets/home.jpg')}
+              style={{
+                borderRadius: 5,
+                flex: 1,
+                height: 100,
+              }}
+            />
           </View>
         </View>
       </View>
