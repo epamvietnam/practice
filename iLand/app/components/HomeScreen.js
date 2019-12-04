@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
-import {Text, View, ScrollView, Image} from 'react-native';
-import {Colors} from '../styles/DefaultStyles';
+import {Text, View, ScrollView} from 'react-native';
 import {Icon} from 'react-native-elements';
+import Category from './Category';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export class HomeScreen extends Component {
+  onPress = () => {
+    this.props.navigation.navigate('CategoryListing');
+  };
+
   render() {
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -18,22 +23,25 @@ export class HomeScreen extends Component {
           <View>
             <Text style={{fontSize: 30}}>Explore</Text>
             <View style={{flexDirection: 'row', marginVertical: 20}}>
-              <View
-                style={{
-                  borderRadius: 5,
-                  backgroundColor: '#3263a8',
-                  flex: 1,
-                  height: 100,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Icon
-                  name="heartbeat"
-                  type="font-awesome"
-                  color="#fff"
-                  size={20}
-                />
-                <Text style={{color: '#fff'}}>Properties</Text>
+              <View style={{flex: 1}}>
+                <TouchableOpacity onPress={this.onPress}>
+                  <View
+                    style={{
+                      borderRadius: 5,
+                      backgroundColor: '#3263a8',
+                      height: 100,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                    <Icon
+                      name="heartbeat"
+                      type="font-awesome"
+                      color="#fff"
+                      size={20}
+                    />
+                    <Text style={{color: '#fff'}}>Properties</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
               <View
                 style={{
@@ -137,162 +145,9 @@ export class HomeScreen extends Component {
               </View>
             </View>
           </View>
-
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 20,
-              }}>
-              <Text style={{fontSize: 20, flex: 1}}>Popular trending</Text>
-              <Text style={{color: Colors.primary}}>View all</Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                marginVertical: 20,
-              }}>
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-            </View>
-          </View>
-
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 20,
-              }}>
-              <Text style={{fontSize: 20, flex: 1}}>Featured Ads</Text>
-              <Text style={{color: Colors.primary}}>View all</Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                marginVertical: 20,
-              }}>
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-            </View>
-          </View>
-
-          <View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 20,
-              }}>
-              <Text style={{fontSize: 20, flex: 1}}>Top Deals</Text>
-              <Text style={{color: Colors.primary}}>View all</Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                marginVertical: 20,
-              }}>
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-              <View
-                style={{
-                  width: 10,
-                }}
-              />
-              <Image
-                source={require('../assets/home.jpg')}
-                style={{
-                  borderRadius: 5,
-                  flex: 1,
-                  height: 100,
-                }}
-              />
-            </View>
-          </View>
+          <Category categoryName="Popular Trending" />
+          <Category categoryName="Featured Ads" />
+          <Category categoryName="Top Deals" />
         </View>
       </ScrollView>
     );
